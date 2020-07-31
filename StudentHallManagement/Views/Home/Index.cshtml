@@ -1,0 +1,111 @@
+﻿@model StudentHallManagement.ViewModels.UserViewModel
+@{
+    Layout = null;
+}
+<style>
+    body {
+        background-color: red;
+        font-family: 'Eras ITC';
+        overflow-x:hidden;
+    }
+
+    .container {
+       
+        background-color: transparent;
+    }
+
+    h1 {
+        color: #444;
+        text-align: center;
+        padding: 30px 0 0 0;
+    }
+
+    form {
+        margin-top: 5%;
+        background-color: #fff;
+        padding: 40px;
+        box-shadow: 0 4px 15px #333;
+        position:absolute;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .form-group {
+        /*transform: translateX(10%);*/
+        margin:5%;
+    }
+       
+        .form-group input {
+            border: none;
+            border-bottom: 1px solid mediumpurple;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+            .form-group input:focus {
+                border: none;
+                border-bottom: 3px solid mediumpurple;
+                border-radius: 0;
+                box-shadow: none;
+            }
+
+    #button-form-group {
+        margin-top: 5%;
+        transform: translateX(40%);
+    }
+
+    #button {
+        padding: 10px 20px 10px 20px;
+        background-color: mediumpurple;
+        color: #fff;
+        border: none;
+        font-size: 16px;
+    }
+    span
+    {
+        color:red;
+    }
+</style>
+<head>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />*@
+    </environment>
+    <environment exclude="Development">
+        @* <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />*@
+    </environment>
+</head>
+<body style="background-color:#e9d8f2;font-family:'Eras ITC';">
+
+    <div class="container">
+        <h1>Student Hall Management System</h1>
+        <form class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-lg-offset-3" asp-controller="Home" asp-action="Index" method="post">
+            <div>
+                <h2>Login Here</h2>
+                <hr />
+            </div>
+            <div class="form-group">
+                <label>Enter Your UserID</label>
+                <input class="form-control" placeholder="UserID" asp-for="useridVM" />
+            </div>
+            <div class="form-group">
+                <label>Enter Password</label>
+                <input class="form-control" placeholder="Password" type="password" asp-for="passwordVM" />
+            </div>
+            <div class="form-group">
+                <span>
+                    @ViewBag.errmsg
+                </span>            
+            </div>
+            <div id="button-form-group">
+                <button class="btn btn-default" id="button" type="submit"><strong>Log In</strong></button>
+            </div>
+        </form>
+    </div>
+    
+</body>

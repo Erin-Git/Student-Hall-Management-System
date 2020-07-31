@@ -1,0 +1,43 @@
+﻿@model StudentHallManagement.ViewModels.FeeViewModel
+@{
+    ViewData["Title"] = "SetFee";
+}
+<style>
+    #formdiv {
+        background-color: #fff;
+        padding: 30px;
+        margin-top: 5%;
+        border: 2px solid rebeccapurple;
+        border-radius: 5px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+    hr
+    {
+        margin-bottom:5%;
+    }
+    #button {
+        float: right;
+        padding: 10px 20px 10px 20px;
+        background-color: rebeccapurple;
+        color: #fff;
+        border: none;
+    }
+</style>
+<div class="col-lg-6 col-lg-offset-3" id="formdiv">
+
+    <h2>Set Fee</h2>
+    <hr />
+    <form asp-controller="Supervisor" asp-action="SetFee" method="post">
+        <div class="form-group">
+            <label>Enter Fee Amount</label>
+            <input class="form-control" placeholder="Amount" type="text" asp-for="feeamountVM" />
+        </div>
+        <button type="submit" class="btn btn-primary"id="button">Set</button>
+    </form>
+
+</div>
+
+

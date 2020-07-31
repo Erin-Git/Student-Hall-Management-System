@@ -1,0 +1,60 @@
+﻿<style>
+    #formdiv {
+        background-color: #fff;
+        margin-top: 5%;
+        padding:30px;
+        border: 2px solid rebeccapurple;
+        border-radius: 5px;
+    }
+
+    h2 {
+        text-align: center;
+        
+    }
+    hr
+    {
+        margin-bottom:3%;
+    }
+    #hour
+    {
+        margin-top:20px;
+        border:2px ridge rebeccapurple;
+
+        padding:10px;
+    }
+        #hour h1 {
+            text-align: center;
+            font-size: 24px;
+            color:#000;
+        }
+</style>
+<div class="col-lg-9 col-lg-offset-2" id="formdiv">
+    <h2>It's Meal Hour!</h2>
+    <hr />
+    <a asp-controller="Supervisor" asp-action="BreakfastHour">
+        <div class="col-lg-3 col-lg-offset-1" id="hour">
+            <img src="~/images/breakfast.svg" class="img-responsive" />
+            <h1>Breakfast</h1>
+        </div>
+    </a>
+    @ViewBag.Message1
+    <a asp-controller="Supervisor" asp-action="LunchHour">
+        <div class="col-lg-3 col-lg-offset-1" id="hour">
+            <img src="~/images/omelette.svg" class="img-responsive" />
+            <h1>Lunch</h1>
+        </div>
+    </a>
+    @ViewBag.Message2
+
+    <a asp-controller="Supervisor" asp-action="DinnerHour">
+        <div class="col-lg-3 col-lg-offset-1" id="hour">
+            <img src="~/images/curry.svg" class="img-responsive" />
+            <h1>Dinner</h1>
+        </div>
+    </a>
+    @ViewBag.Message3
+
+</div>
+   
+
+

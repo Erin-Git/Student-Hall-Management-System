@@ -1,0 +1,55 @@
+﻿@model StudentHallManagement.ViewModels.MealDistributionViewModel
+@{
+    ViewData["Title"] = "MyMealActivity";
+}
+
+<style>
+    #formdiv {
+        background-color: #fff;
+        padding: 30px;
+        margin-top: 6%;
+        border: 2px solid rebeccapurple;
+        border-radius: 5px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    hr {
+        margin-bottom: 5%;
+    }
+
+    table {
+        text-align: center;
+    }
+
+    th {
+        text-align: center;
+    }
+</style>
+<div class="col-lg-6 col-lg-offset-3" id="formdiv">
+
+    <h2>@Model.studentnameVM's Meal Activity</h2>
+    <hr />
+    <table class="table table-bordered">
+        <tbody>
+        <thead>
+
+            <tr>
+                <td>Hall ID:</td>
+                <td>@Model.studenthallidVM</td>
+            </tr>
+            <tr>
+                <td>Total Meal:</td>
+                <td>@Model.meal</td>
+            </tr>
+            <tr>
+                <td>My Status:</td>
+                <td>@Model.status2%</td>
+            </tr>
+        </thead>
+        </tbody>
+    </table>
+</div>
+

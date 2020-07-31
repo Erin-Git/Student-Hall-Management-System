@@ -1,0 +1,156 @@
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - StudentHallManagement</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+
+    @{var f = Context.Session.GetString("UserRoleID");}
+
+   @if (f == "2")
+   {
+    <div id="header">
+        <h1>Student Hall Management</h1>
+        <h4>Student Panel</h4>
+    </div>
+    <div class="sidenav">
+        <button class="dropdown-btn">
+            <a asp-controller="Student" asp-action="MyInfo"><i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp;My Info</a>
+        </button>
+        <button class="dropdown-btn">
+            <a asp-controller="Student" asp-action="MyRoomInfo"><i class="fa fa-window-maximize" aria-hidden="true"></i>&nbsp;My Room</a>
+        </button>
+        <button class="dropdown-btn">
+            <a asp-controller="Student" asp-action="MyMealActivity"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp; Meal Activity</a>
+        </button>
+        <button class="dropdown-btn">
+            <a asp-controller="Home" asp-action="Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</a>
+        </button>
+       
+    </div>
+   }
+    @*<partial name="_CookieConsentPartial" />
+        <div class="container body-content">
+            @RenderBody()
+        </div>*@
+    @*@RenderSection("Scripts", required: false)*@
+
+
+  else 
+    {
+
+        <div id="header">
+            <h1>Student Hall Management</h1>
+            <h4>Supervisor Panel</h4>
+        </div>
+        <div class="sidenav">
+
+            <button class="dropdown-btn">
+                &nbsp;<i class="fa fa-user" aria-hidden="true"></i>&nbsp;Student
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a asp-controller="Supervisor" asp-action="AddNewStudent"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;Add New Student</a>
+                <a asp-controller="Supervisor" asp-action="StudentList"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp; Student List</a>
+            </div>
+            <button class="dropdown-btn">
+                &nbsp;<i class="fa fa-window-maximize" aria-hidden="true"></i>
+                Room
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a asp-controller="Supervisor" asp-action="CreateNewRoom"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Create New Room</a>
+                <a asp-controller="Supervisor" asp-action="RoomList"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp; Room List</a>
+                <a asp-controller="Supervisor" asp-action="RoomAssignForm"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp; Assign Room</a>
+                <a asp-controller="Supervisor" asp-action="AssignedRoomList"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Details</a>
+            </div>
+            <button class="dropdown-btn">
+                &nbsp; <i class="fa fa-cutlery" aria-hidden="true"></i>
+                Meal
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a asp-controller="Supervisor" asp-action="ChooseMealHour"><i class="fa fa-hourglass" aria-hidden="true"></i>&nbsp;Meal Hour</a>
+                <a asp-controller="Supervisor" asp-action="DistributionDetails"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Details</a>
+            </div>
+            <button class="dropdown-btn">
+                &nbsp; <i class="fa fa-money" aria-hidden="true"></i>
+                Accounts
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a asp-controller="Supervisor" asp-action="SetFee"><i class="fa fa-pencil"></i> Set Fee</a>
+                <a asp-controller="Supervisor" asp-action="FeeDetails"><i class="fa fa-list-ul"></i> Fee Details</a>
+                <a asp-controller="Supervisor" asp-action="Payment"><i class="fa fa-money"></i> Payment</a>
+                <a asp-controller="Supervisor" asp-action="PaymentList"><i class="fa fa-list-ul"></i> Payment Details</a>
+            </div>
+            <button class="dropdown-btn">
+                <a asp-controller="Home" asp-action="Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+            </button>
+        </div>
+        <partial name="_CookieConsentPartial" />
+
+
+        @*@RenderSection("Scripts", required: false)*@
+    }
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+
+    </environment>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    @*@RenderSection("Scripts", required: false)*@
+</body>
+</html>
+
+<script>
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+    for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        });
+    }
+</script>

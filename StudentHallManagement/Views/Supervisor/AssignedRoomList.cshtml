@@ -1,0 +1,55 @@
+﻿@model List<StudentHallManagement.ViewModels.AssignedRoomViewModel>
+
+<style>
+    #formdiv {
+        background-color: #fff;
+        padding: 30px;
+        margin-top: 3%;
+        border: 2px solid rebeccapurple;
+        border-radius: 5px;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 5%;
+    }
+    table {
+        text-align: center;
+    }
+
+    th {
+        text-align: center;
+    }
+</style>
+<div class="col-lg-9 col-lg-offset-2" id="formdiv">
+
+    <h2>Room Assigning Details</h2>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Serial No</th>
+                <th>Room Name</th>
+                <th>Student Hall ID</th>
+                <th>Student Name</th>
+                <th>Department</th>
+                <th>Assigning Date</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.serialnoVM</td>
+                    <td>@item.roomnameVM</td>
+                    <td>@item.studenthallidVM</td>
+                    <td>@item.studentnameVM</td>
+                    <td>@item.departmentVM</td>
+                    <td>@item.adVM</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

@@ -1,0 +1,59 @@
+﻿@model List<StudentHallManagement.ViewModels.MealDistributionViewModel>
+
+<style>
+    #formdiv {
+        background-color: #fff;
+        padding: 30px;
+        margin-top: 5%;
+        border: 2px solid rebeccapurple;
+        border-radius: 5px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+    hr {
+        margin-bottom: 2%;
+    }
+    table {
+        text-align: center;
+    }
+
+    th {
+        text-align: center;
+    }
+</style>
+<div class="col-lg-10 col-lg-offset-2" id="formdiv">
+
+    <h2>Meal Distribution Details</h2>
+    <hr />
+    <div>
+    </div>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Serial No</th>
+                <th>Student Hall ID</th>
+                <th>Student Name</th>
+                <th>Total Meal</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.serialnoVM</td>
+                    <td>@item.studenthallidVM</td>
+                    <td>@item.studentnameVM</td>
+                    <td>@item.meal</td>
+                    <td>@item.status2%</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

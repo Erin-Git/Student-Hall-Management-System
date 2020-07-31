@@ -1,0 +1,57 @@
+﻿@model StudentHallManagement.ViewModels.AssignedRoomViewModel
+@{
+    ViewData["Title"] = "MyRoomInfo";
+}
+
+<style>
+    #formdiv {
+        background-color: #fff;
+        padding: 30px;
+        margin-top: 6%;
+        border: 2px solid rebeccapurple;
+        border-radius: 5px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    hr {
+        margin-bottom: 5%;
+    }
+
+    table {
+        text-align: center;
+    }
+
+    th {
+        text-align: center;
+    }
+</style>
+<div class="col-lg-6 col-lg-offset-3" id="formdiv">
+    <div>
+        <h2>@ViewBag.message</h2>
+    </div>
+    <h2>@Model.studentnameVM's Room Info</h2>
+    <hr />
+    <table class="table table-bordered">
+        <tbody>
+        <thead>
+            <tr>
+                <td>My Hall ID:</td>
+                <td>@Model.studenthallidVM</td>
+            </tr>
+            <tr>
+                <td>Room:</td>
+                <td>@Model.roomnameVM</td>
+            </tr>
+            <tr>
+                <td>Assgining date:</td>
+                <td>@Model.adVM</td>
+            </tr>
+            
+        </thead>
+        </tbody>
+    </table>
+</div>
+

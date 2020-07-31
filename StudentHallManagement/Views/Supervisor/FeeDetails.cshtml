@@ -1,0 +1,60 @@
+﻿@model List<StudentHallManagement.ViewModels.FeeViewModel>
+
+<style>
+    #formdiv {
+        background-color: #fff;
+        padding: 30px;
+        margin-top: 5%;
+        border: 2px solid rebeccapurple;
+        border-radius: 5px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+    hr {
+        margin-bottom: 5%;
+    }
+    table {
+        text-align: center;
+    }
+
+    th {
+        text-align: center;
+    }
+</style>
+<div class="col-lg-6 col-lg-offset-3" id="formdiv">
+
+    <h2>Fee Info</h2>
+    <hr />
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Serial No</th>
+                <th>Fee Amount(BDT/=)</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.serialnoVM</td>
+                    <td>@item.feeamountVM</td>
+
+                    <td>
+                        <a asp-controller="Supervisor" asp-action="UpdateFee" asp-route-feeupdateid="@item.feeidVM">
+                            <i class="fa fa-pencil-square-o" style="font-size:25px;color:green;"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>
+
+

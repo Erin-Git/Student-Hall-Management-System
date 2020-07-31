@@ -1,0 +1,75 @@
+﻿@model List<StudentHallManagement.ViewModels.MealDistributionViewModel>
+<style>
+    #formdiv {
+        background-color: #fff;
+        padding: 30px;
+        margin-top: 3%;
+        border: 2px solid rebeccapurple;
+        border-radius: 5px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+    hr {
+        margin-bottom: 2%;
+    }
+    table {
+        text-align: center;
+    }
+
+    th {
+        text-align: center;
+    }
+    #button {
+        float: right;
+        padding: 10px 20px 10px 20px;
+        background-color: rebeccapurple;
+        color: #fff;
+        border: none;
+        margin-right: 3%;
+    }
+</style>
+
+<div class="col-lg-9 col-lg-offset-2" id="formdiv">
+    <form asp-controller="Supervisor" asp-action="DinnerHour" method="post">
+        <h2>Dinner Hour</h2>
+        <hr />
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>Serial No</th>
+                    <th>Student Hall ID</th>
+                    <th>Student Name</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@Model[i].serialnoVM</td>
+                        <td>@Model[i].studenthallidVM</td>
+                        <td>@Model[i].studentnameVM</td>
+                        <td>
+                            <select asp-for="@Model[i].distributionstatusVM">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                            <input type="hidden" asp-for="@Model[i].studenthallidVM" />
+                            <input type="hidden" asp-for="@Model[i].studentnameVM" />
+                            <input type="hidden" asp-for="@Model[i].distributionstatusVM" />
+                            <input type="hidden" value="Dinner" asp-for="@Model[i].mealcatagoryVM" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <button class="btn btn-primary" type="submit"id="button">Done</button>
+    </form>
+
+</div>
+
+
+

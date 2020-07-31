@@ -1,0 +1,46 @@
+﻿@model StudentHallManagement.ViewModels.PaymentViewModel
+@{
+    ViewData["Title"] = "Payment";
+}
+<style>
+    #formdiv {
+        background-color: #fff;
+        padding: 30px;
+        margin-top: 5%;
+        border: 2px solid rebeccapurple;
+        border-radius: 5px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+    hr
+    {
+        margin-bottom:5%;
+    }
+    #button {
+        float: right;
+        padding: 10px 20px 10px 20px;
+        background-color: rebeccapurple;
+        color: #fff;
+        border: none;
+    }
+</style>
+<div class="col-lg-6 col-lg-offset-3" id="formdiv">
+
+    <h2>Payment</h2>
+    <hr />
+    <form asp-controller="Supervisor" asp-action="Payment" method="post">
+        <div class="form-group">
+            <label>Enter Student's Hall ID</label>
+            <input class="form-control" placeholder="Student's Hall ID" type="text" asp-for="studenthallidVM" />
+        </div>
+        @ViewBag.message1
+        @ViewBag.message2
+        
+        <button type="submit" class="btn btn-primary"id="button">Next</button>
+    </form>
+
+</div>
+
+

@@ -1,0 +1,57 @@
+﻿
+
+
+
+@model StudentHallManagement.ViewModels.StudentViewModel
+@{
+    ViewData["Title"] = "AddNewStudent";
+}
+<style>
+    #formdiv {
+        background-color: #fff;
+        padding: 30px;
+        margin-top: 3%;
+        border: 2px solid rebeccapurple;
+        border-radius: 5px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    #button {
+        float: right;
+        padding: 10px 20px 10px 20px;
+        background-color: rebeccapurple;
+        color: #fff;
+        border: none;
+    }
+</style>
+<div class="col-lg-6 col-lg-offset-3" id="formdiv">
+
+    <h2>Add New Student</h2>
+    <hr />
+    <form asp-controller="Supervisor" asp-action="AddNewStudent" method="post">
+
+        <div class="form-group">
+            <label>Enter Student Name</label>
+            <input class="form-control" placeholder="Student Name" type="text" asp-for="studentnameVM" />
+        </div>
+        <div class="form-group">
+            <label>Enter Department</label>
+            <input class="form-control" placeholder="Department" type="text" asp-for="departmentVM" />
+        </div>
+        <div class="form-group">
+            <label>Enter Student's Date of Birth</label>
+            <input class="form-control" placeholder="DOB" type="date" asp-for="dobVM" />
+        </div>
+        <div class="form-group">
+            <label>Enter Contact No.</label>
+            <input class="form-control" placeholder="Mobile No." type="number" asp-for="contactnoVM" />
+        </div>
+        <button type="submit" class="btn btn-primary" id="button">Add</button>
+    </form>
+
+</div>
+
+

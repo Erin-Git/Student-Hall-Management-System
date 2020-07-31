@@ -1,0 +1,73 @@
+﻿@model List<StudentHallManagement.ViewModels.StudentViewModel>
+
+<style>
+    #formdiv {
+        background-color: #fff;
+        padding: 30px;
+        margin-top: 3%;
+        border: 2px solid rebeccapurple;
+        border-radius: 5px;
+    }
+
+    h2 {
+        text-align: center;
+        
+    }
+    hr {
+        margin-bottom: 5%;
+    }
+    table {
+        text-align: center;
+    }
+
+    th {
+        text-align: center;
+    }
+</style>
+<div class="col-lg-12 col-lg-offset-1" id="formdiv">
+
+    <h2>List of Student</h2>
+    <hr />
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Serial No</th>
+                <th>Student Hall ID</th>
+                <th>Student Name</th>
+                <th>Department</th>
+                <th>Date of Birth</th>
+                <th>Contact No.</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.serialnoVM</td>
+                    <td>@item.studenthallidVM</td>
+                    <td>@item.studentnameVM</td>
+                    <td>@item.departmentVM</td>
+                    <td>@item.dobdVM</td>
+                    <td>+880 @item.contactnoVM</td>
+                    <td>
+                        <a asp-controller="Supervisor" asp-action="UpdateStudent" asp-route-idupdatestudent="@item.studenthallidVM">
+                            <i class="fa fa-pencil-square-o" style="font-size:25px;color:green;"></i>
+                        </a>
+                        &nbsp;
+                        &nbsp;
+                        <a asp-controller="Supervisor" asp-action="RemoveStudent" asp-route-idremovestudent="@item.studenthallidVM">
+                            <i class="fa fa-trash" style="font-size:26px;color:red;"></i>
+                        </a>
+                        
+                    </td>
+                </tr>
+            }
+           
+        </tbody>
+    </table>
+</div>
+
+
+

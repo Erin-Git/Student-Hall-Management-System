@@ -1,0 +1,48 @@
+﻿@model StudentHallManagement.ViewModels.RoomViewModel
+@{
+    ViewData["Title"] = "CreateNewRoom";
+}
+<style>
+    #formdiv {
+        background-color: #fff;
+        padding: 30px;
+        margin-top: 5%;
+        border: 2px solid rebeccapurple;
+        border-radius: 5px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+    hr
+    {
+        margin-top:5%;
+    }
+    #button {
+        float: right;
+        padding: 10px 20px 10px 20px;
+        background-color: rebeccapurple;
+        color: #fff;
+        border: none;
+    }
+</style>
+<div class="col-lg-6 col-lg-offset-3" id="formdiv">
+
+    <h2>Create New Room</h2>
+    <hr />
+    <form asp-controller="Supervisor" asp-action="CreateNewRoom" method="post">
+        <div class="form-group">
+            <label>Set the Room Name</label>
+            <input class="form-control" placeholder="Room Name" type="text" asp-for="roomnameVM" />
+        </div>
+        <div class="form-group">
+            <label>Set the Capacity</label>
+            <input class="form-control" placeholder="Capacity" type="text" asp-for="roomcapacityVM" />
+        </div>
+       
+        <button type="submit" class="btn btn-primary"id="button">Create</button>
+    </form>
+
+</div>
+
+
